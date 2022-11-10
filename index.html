@@ -1,55 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Starter</title>
-  <link rel="stylesheet" href="css/modnorm.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <!-- <link rel="stylesheet" href="css/nocom.css"> -->
-</head>
-<body>
-  <header class="top-nav">
-    <a href="#" class="nav-link logo">Site&nbsp;Title</a>
-    <nav id="site-nav" class="nav-wrap">
-      <a href="#" class="nav-link">News</a>
-      <a href="#" class="nav-link">About</a>
-      <a href="#" class="nav-link">Specials</a>
-      <a href="#" class="nav-link">Contact</a>
-    </nav>
-    <a href="#" class="nav-link" id="trigram" onclick="navToggle()"></a>
-  </header>
-  <main>
-    <section class="slideshow">
-      <!--slider goes here-->
-      <h2>slideshow here</h2>
-      <div class="controls">
-        <button>&#8249;</button>
-        <button>&#8250;</button>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RPS-Starter</title>
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/modnorm.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Rock, Paper, Scissors</h1>
+    <main class="choice">
+      <section class="pchoice">
+        <h2>You choose . . .</h2>
+        <div class="images">
+          <img id="r-img" src="svg/rock.svg" alt="hand as rock">
+          <img id="p-img" src="svg/paper.svg" alt="hand as paper">
+          <img id="s-img" src="svg/scissors.svg" alt="hand as scissors">
+        </div>
+      </section>
+      <section class="ochoice">
+        <h2>Opponent chooses . . .</h2>
+        <img id="o-img" src="svg/mystery.svg" alt="" >
+      </section>
+    </main>
+    <section class="scoreboard">
+      <h2 id="result">It's a Tie.</h2>
+      <div id="play" class="score">
+        <p id="pscore">0</p>
+        <p class="label">Player</p>
+      </div>
+      <div id="opp" class="score">
+        <p id="oscore">0</p>
+        <p class="label">Opponent</p>
       </div>
     </section>
-    <section class="hero">
-      <h2>Images from <em>Lorem Picsum</em></h2>
-      <p>Visit <a href="https://picsum.photos/">that site</a> to learn how to use them.</p>
-    </section>
-    <section class="grid-cont">
-      <article class="card">
-        <!-- <img src="https://picsum.photos/480/320?grayscale&random=1" alt="alt-text reads . . ."> -->
-        <h4>Heading for a bit</h4>
-        <p>Purus semper eget duis at tellus at urna condimentum mattis pellentesque id nibh tortor id aliquet lectus proin nibh nisl condimentum id venenatis a condimentum</p>
-        <button onclick="sampleFunction()">Click</button><!--when clicked, the function runs-->
-      </article><!--end article.card-->
-      
-      <!--
-        add more article.cards inside this section
-      -->
-
-    </section>
-  </main>
-  <footer>
-    <p>&copy;2022 Your Name</p>
-  </footer>
+  <!-- loads javascript -->
   <script src="js/page.js"></script>
-</body>
+  </body>
 </html>
