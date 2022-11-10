@@ -1,37 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Rock, Paper, Scissors</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body onload="initPick()">
-    <h1 class="title">Rock, Paper, Scissors Game</h1>
-    <main>
-      <section class="pick">
-        <h3>Click to Choose</h3>
-        <div class="choices">
-          <a class="rock" onclick="rockPick()">
-            <img src="img/rock.svg" alt="rock-hand">
-          </a>
-          <a class="paper" onclick="paperPick()">
-            <img src="img/paper.svg" alt="paper-hand">
-          </a>
-          <a class="scissors" onclick="scissorsPick()">
-            <img src="img/scissors.svg" alt="scissor-hand">
-          </a>
-        </div>
-      </section>
-      <section class="opp">
-        <h3>Opponent Chooses</h3>
-        <div class="opp-pick">
-          <img id="oppResult" src="">
-        </div>
-      </section>
-    </main>
-    <div class="result-wrapper">
-      <h1 id="result">&nbsp;</h1>
-    </div>
-  <script src="logic.js"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Starter</title>
+  <link rel="stylesheet" href="css/modnorm.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" href="css/nocom.css"> -->
+</head>
+<body>
+  <header class="top-nav">
+    <a href="#" class="nav-link logo">Site&nbsp;Title</a>
+    <nav id="site-nav" class="nav-wrap">
+      <a href="#" class="nav-link">News</a>
+      <a href="#" class="nav-link">About</a>
+      <a href="#" class="nav-link">Specials</a>
+      <a href="#" class="nav-link">Contact</a>
+    </nav>
+    <a href="#" class="nav-link" id="trigram" onclick="navToggle()"></a>
+  </header>
+  <main>
+    <section class="slideshow">
+      <!--slider goes here-->
+      <h2>slideshow here</h2>
+      <div class="controls">
+        <button>&#8249;</button>
+        <button>&#8250;</button>
+      </div>
+    </section>
+    <section class="hero">
+      <h2>Images from <em>Lorem Picsum</em></h2>
+      <p>Visit <a href="https://picsum.photos/">that site</a> to learn how to use them.</p>
+    </section>
+    <section class="grid-cont">
+      <article class="card">
+        <!-- <img src="https://picsum.photos/480/320?grayscale&random=1" alt="alt-text reads . . ."> -->
+        <h4>Heading for a bit</h4>
+        <p>Purus semper eget duis at tellus at urna condimentum mattis pellentesque id nibh tortor id aliquet lectus proin nibh nisl condimentum id venenatis a condimentum</p>
+        <button onclick="sampleFunction()">Click</button><!--when clicked, the function runs-->
+      </article><!--end article.card-->
+      
+      <!--
+        add more article.cards inside this section
+      -->
+
+    </section>
+  </main>
+  <footer>
+    <p>&copy;2022 Your Name</p>
+  </footer>
+  <script src="js/page.js"></script>
+</body>
 </html>

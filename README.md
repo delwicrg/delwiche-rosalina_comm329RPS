@@ -1,4 +1,8 @@
-# eg_rps
-A basic javascript rock-paper-scissors game
+# eg_media_starter
+ project starter for media gallery
 
-Feel free to use as you see fit.
+## uses strip-css-comments-cli
+adds a no-comments version of the css using: https://github.com/sindresorhus/strip-css-comments-cli
+```
+strip-css-comments <input-file> > <output-file>
+```
