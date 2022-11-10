@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body onload="initPick()">
+    <h1 class="title">Rock, Paper, Scissors Game</h1>
+    <main>
+      <section class="pick">
+        <h3>Click to Choose</h3>
+        <div class="choices">
+          <a class="rock" onclick="rockPick()">
+            <img src="img/rock.svg" alt="rock-hand">
+          </a>
+          <a class="paper" onclick="paperPick()">
+            <img src="img/paper.svg" alt="paper-hand">
+          </a>
+          <a class="scissors" onclick="scissorsPick()">
+            <img src="img/scissors.svg" alt="scissor-hand">
+          </a>
+        </div>
+      </section>
+      <section class="opp">
+        <h3>Opponent Chooses</h3>
+        <div class="opp-pick">
+          <img id="oppResult" src="">
+        </div>
+      </section>
+    </main>
+    <div class="result-wrapper">
+      <h1 id="result">&nbsp;</h1>
+    </div>
+  <script src="logic.js"></script>
+  </body>
+</html>
