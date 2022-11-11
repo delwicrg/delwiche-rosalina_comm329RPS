@@ -1,3 +1,11 @@
+/**
+ * @author Rosalina Delwiche
+ */
+
+const ROCK = 1;
+const PAPER = 2;
+const SCISSORS = 3;
+
 
 var computerChoice = 0;
 var userChoice = 0;
@@ -5,47 +13,62 @@ var win = -1;
 var userScoreTotal = 0;
 var computerScoreTotal = 0;
 var nameOfUser = "NA";
+var gameNum = 0;
 
-// function to chose opponent choice by random 
+
+/**
+ * to chose opponent choice by random 
+ */
 function computerSelection(){
     computerChoice = Math.floor(Math.random() * (3)) + 1;
     switch(computerChoice){
-        case 1:   // set to rock 
+        case ROCK:  
             document.getElementById("o-img").src="./svg/rock.svg";
             document.getElementById("computerSelection").src="./svg/rock.svg";   
             break;
-        case 2: // set to paper
+        case PAPER: 
             document.getElementById("o-img").src="./svg/paper.svg";
             document.getElementById("computerSelection").src="./svg/paper.svg";   
             break;
-        case 3:  // set to scissors
+        case SCISSORS: 
             document.getElementById("o-img").src="./svg/scissors.svg";
             document.getElementById("computerSelection").src="./svg/scissors.svg";   
             break;
     }
-    console.log("COMPUTER CHOICE" + computerChoice);
 }
 
-//userSelection
-
+/**
+ * to set user selection as rock
+ */
 function userSelectionRock(){
-    userChoice = 1;
+    userChoice = ROCK;
      userSelectionAfter();
      document.getElementById("userSelection").src="./svg/rock.svg";   
 } 
+
+/**
+ * to set user selection as paper
+ */
 function userSelectionPaper(){
-    userChoice = 2;
+    userChoice = PAPER;
     userSelectionAfter();    
     document.getElementById("userSelection").src="./svg/paper.svg";
 }
 
+/**
+ * to set user selection as scissors
+ */
 function userSelectionScissors(){
-    userChoice = 3;
+    userChoice = SCISSORS;
     userSelectionAfter();
     document.getElementById("userSelection").src="./svg/scissors.svg";
 
 } 
 
+/**
+ * to carry out the game after user selection
+ * carries out computer selection, computation of win or loose, and updating of score
+ */
 function userSelectionAfter(){
     nameOfUser =  document.getElementById("nameOfUser").value;
     console.log("USER " + nameOfUser);
@@ -53,64 +76,54 @@ function userSelectionAfter(){
     winOrLoss();
     updateScore();
     clearSelection();
+    gameNum++;
+    if(gameNum == 1){document.getElementById("nameOfUser").style.display = "none";}
     
 }
 
 
-
+/**
+ * clears the user and computer choices for the next game
+ */
 function clearSelection(){
-    userChoice = 0;
-    computerChoice = 0;
+    userChoice, computerChoice = 0;
     win = -1;
 }
 
-
-// 1 rock
-// 2 paper
-// 3 scissors
+/**
+ * computes whether the user has won or lost
+ */
 function winOrLoss(){
-    if(userChoice == 1){
-        if(computerChoice == 3){ win = 1;}
-        else if(computerChoice == 2){win = 0;}
-        else{win = 2;}
+    if((userChoice == ROCK && computerChoice == SCISSORS) || (userChoice == PAPER && computerChoice == ROCK) || (userChoice == SCISSORS && computerChoice == PAPER)){
+        win = 1;
     }
-    else if(userChoice == 2){
-        if(computerChoice == 3){ win = 0;}
-        else if(computerChoice == 1){win = 1;}
-        else{win = 2;}
+    else if((computerChoice == ROCK && userChoice == SCISSORS) || (computerChoice == PAPER && userChoice == ROCK) || (computerChoice == SCISSORS && userChoice == PAPER)){
+        win = 0;
     }
-    else if(userChoice == 3){
-        if(computerChoice == 1){ win = 0;}
-        else if(computerChoice == 2){win = 1;}
-        else{win = 2;}
-    }
+    else {win = 2;}
 }
 
+/**
+ * updates the game score accordingly on whether the computer won, user won, or it was a tie
+ * as a result of a win, one is added to the winners score
+ */
 function updateScore(){
     if(nameOfUser == ""){nameOfUser = "pal";}
 
     if(win == 1){   
         userScoreTotal++;
         document.getElementById("result").innerHTML = "Congratulations " + nameOfUser + ", you win.";
-        console.log("LLL"+ nameOfUser + "LLLL");
-        console.log("WIN");
     }
     else if(win == 0){
         computerScoreTotal++;
         document.getElementById("result").innerHTML = "Sorry " + nameOfUser + ", you loose";
-        console.log("LOOSE");
-
     }
     else if(win == 2){
         computerScoreTotal++;
         userScoreTotal++;
-
         document.getElementById("result").innerHTML = "It's a Tie";
-        console.log("TIE");
     }
 
-    console.log("COMPUTER SCORE" + computerScoreTotal);
-    console.log("USER SCORE" + userScoreTotal);
 
     document.getElementById("oscore").innerHTML = computerScoreTotal;
     document.getElementById("pscore").innerHTML = userScoreTotal;
@@ -118,10 +131,13 @@ function updateScore(){
 
 }
 
-
+/**
+ * resets the computer and user scores to 0 and selections to mystery, awaiting new game
+ */
 function resetGame(){
         userScoreTotal = 0;
         computerScoreTotal = 0;
+        gameNum = 0;
 
         document.getElementById("userSelection").src="./svg/mystery.svg";
         document.getElementById("computerSelection").src="./svg/mystery.svg";
@@ -130,5 +146,6 @@ function resetGame(){
 
         document.getElementById("oscore").innerHTML = computerScoreTotal;
         document.getElementById("pscore").innerHTML = userScoreTotal;
-   
+        document.getElementById("nameOfUser").value = "";
+        document.getElementById("nameOfUser").style.display = "block";  
 }
