@@ -53,7 +53,10 @@ function userSelectionAfter(){
     winOrLoss();
     updateScore();
     clearSelection();
+    
 }
+
+
 
 function clearSelection(){
     userChoice = 0;
@@ -84,17 +87,17 @@ function winOrLoss(){
 }
 
 function updateScore(){
-    console.log("COMPUTER " + computerChoice);
-    console.log("USER " + userChoice);
+    if(nameOfUser == ""){nameOfUser = "pal";}
 
     if(win == 1){   
         userScoreTotal++;
-        document.getElementById("result").innerHTML = "You Win.";
+        document.getElementById("result").innerHTML = "Congratulations " + nameOfUser + ", you win.";
+        console.log("LLL"+ nameOfUser + "LLLL");
         console.log("WIN");
     }
     else if(win == 0){
         computerScoreTotal++;
-        document.getElementById("result").innerHTML = "You Loose";
+        document.getElementById("result").innerHTML = "Sorry " + nameOfUser + ", you loose";
         console.log("LOOSE");
 
     }
@@ -113,4 +116,19 @@ function updateScore(){
     document.getElementById("pscore").innerHTML = userScoreTotal;
 
 
+}
+
+
+function resetGame(){
+        userScoreTotal = 0;
+        computerScoreTotal = 0;
+
+        document.getElementById("userSelection").src="./svg/mystery.svg";
+        document.getElementById("computerSelection").src="./svg/mystery.svg";
+        document.getElementById("o-img").src="./svg/mystery.svg";
+
+
+        document.getElementById("oscore").innerHTML = computerScoreTotal;
+        document.getElementById("pscore").innerHTML = userScoreTotal;
+   
 }
