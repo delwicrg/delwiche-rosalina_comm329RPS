@@ -32,13 +32,26 @@
       <h2 id="result">It's a Tie.</h2>
       <div id="play" class="score">
         <p id="pscore">0</p>
-        <p class="label">Player</p>
+        <p class="label" id ="playerName">Player</p>
       </div>
       <div id="opp" class="score">
         <p id="oscore">0</p>
         <p class="label">Opponent</p>
       </div>
+     
+
       <button onclick = "resetGame()">Reset</button>
+      
+    </section>
+    <section>
+      <div>
+        <table id="scoreBoard">
+          <tr>
+            <th>User</th>
+            <th>Win Rate</th>
+          </tr>
+        </table>
+      </div>
     </section>
   <!-- loads javascript -->
   <script src="js/page.js"></script>

@@ -12,8 +12,10 @@ var userChoice = 0;
 var win = -1;
 var userScoreTotal = 0;
 var computerScoreTotal = 0;
-var nameOfUser = "NA";
+var nameOfUser = "Player";
 var gameNum = 0;
+
+const scoreBoard = [];
 
 
 /**
@@ -71,13 +73,18 @@ function userSelectionScissors(){
  */
 function userSelectionAfter(){
     nameOfUser =  document.getElementById("nameOfUser").value;
+    if(nameOfUser != "" ){document.getElementById("playerName").innerHTML = nameOfUser;}
+
     console.log("USER " + nameOfUser);
     computerSelection();
     winOrLoss();
     updateScore();
     clearSelection();
     gameNum++;
-    if(gameNum == 1){document.getElementById("nameOfUser").style.display = "none";}
+    if(gameNum == 1){
+        document.getElementById("nameOfUser").style.display = "none";
+    }
+    
     
 }
 
@@ -108,7 +115,7 @@ function winOrLoss(){
  * as a result of a win, one is added to the winners score
  */
 function updateScore(){
-    if(nameOfUser == ""){nameOfUser = "pal";}
+    if(nameOfUser == ""){nameOfUser = "Player";}
 
     if(win == 1){   
         userScoreTotal++;
@@ -135,6 +142,8 @@ function updateScore(){
  * resets the computer and user scores to 0 and selections to mystery, awaiting new game
  */
 function resetGame(){
+        updateScoreBoard();
+
         userScoreTotal = 0;
         computerScoreTotal = 0;
         gameNum = 0;
@@ -148,4 +157,16 @@ function resetGame(){
         document.getElementById("pscore").innerHTML = userScoreTotal;
         document.getElementById("nameOfUser").value = "";
         document.getElementById("nameOfUser").style.display = "block";  
+        document.getElementById("playerName").innerHTML = "Player";
+
+}
+
+function updateScoreBoard(){
+    var winRate = userScoreTotal / gameNum;
+    var table = document.getElementById("scoreBoard");
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(-1);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = nameOfUser ;
+    cell2.innerHTML = winRate;
 }
