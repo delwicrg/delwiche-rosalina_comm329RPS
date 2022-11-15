@@ -7,10 +7,20 @@
     <link href="css/global.css" rel="stylesheet">
     <link href="css/modnorm.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Rock, Paper, Scissors</h1>
-    <input id = "nameOfUser" name="name"> 
+    <div class="waviy">
+      <span style="--i:1">ROCK, </span>
+      <span style="--i:2"> PAPER,  </span>
+      <span style="--i:3">SCISSORS </span>
+     </div>
+    <div class = "userInfo">
+        <label>Enter your name:</label>
+        <input id = "nameOfUser" name="name"> 
+    </div>
     <main class="choice">
       <section class="pchoice">
         <h2>You choose . . .</h2>
@@ -26,8 +36,8 @@
       </section>
     </main>
     <section class="scoreboard">
-      <img src = "svg/mystery.svg" id = "userSelection"></img>
-      <img src = "svg/mystery.svg" id = "computerSelection"></img>
+      <img class = "final" src = "svg/mystery.svg" id = "userSelection"></img>
+      <img  class = "final" src = "svg/mystery.svg" id = "computerSelection"></img>
 
       <h2 id="result">It's a Tie.</h2>
       <div id="play" class="score">
@@ -40,7 +50,7 @@
       </div>
      
 
-      <button onclick = "resetGame()">Reset</button>
+      <button class = "resetButton" onclick = "resetGame()">Reset</button>
       
     </section>
     <section>
