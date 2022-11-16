@@ -26,6 +26,8 @@ body {
   width: 65%;
   margin: auto;
   background-color: black;
+  background-image: url("https://pxt.azureedge.net/blob/68f66c3ddc3acfc4c53157abf92eace202d46db2/static/courses/csintro/conditionals/rock-paper-scissors-items.png");
+  background-size: 200px;
 }
 h1, h2 {
   text-align: center;
@@ -42,7 +44,7 @@ section {
   border: 2px solid #333;
   margin: 1rem 0;
   padding: 1rem;
-  background-color: #FFF;
+  background-color:#f0f0f0;
 }
 main {
   display: grid;
@@ -62,7 +64,7 @@ main section {
   align-items: center;
 }
 .images img {
-  opacity: 50%;
+  opacity: 70%;
   transition: all .3s ease-in-out;
   cursor: pointer;
 }
@@ -105,18 +107,32 @@ p.label {
 
 .userInfo{
   text-align: center;
-  color:white;
-  font-size: 1rem;
+  color:black;
+  font-weight: 800;
+  font-size: 1.25rem;
   margin: 0;
-  padding: 0;
+  margin:0;
+  padding: 0.2em;
+  border-radius: 2px;
 }
 
 .userInfo input{
   border-style: dashed;
-  border-color: white;
-  background-color: black;
-  color: white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.5rem;
+
+
+  border-width: 2px;
+
+  border-color: black;
+  background-color: transparent;
+  color: black;
+  font-weight: 800;
 }
+
 
 
 .finalSelections{
@@ -132,13 +148,18 @@ p.label {
 
 
 
-
+.start{
+  background-color: #f5f4f0c7;
+}
 .waviy {
   position: relative;
   -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
   font-size: 3rem;
   margin: 2rem;
   text-align: center;
+
+  -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
 
 }
 .waviy span {
@@ -148,7 +169,7 @@ p.label {
   color: #fff;
   text-transform: uppercase;
   animation: waviy 1s ;
-  animation-iteration-count: 10;
+  animation-iteration-count: 3;
 
   animation-delay: calc(.1s * var(--i));
 }
@@ -163,4 +184,101 @@ p.label {
   20% {
     transform: translateY(-10px)
   }
+}
+
+.waviy .waviy-1{
+  color:#bd4545;
+  
+}
+
+.waviy .waviy-2{
+  color:#6d1950;
+}
+.waviy .waviy-3{
+  color:#d48849;
+}
+
+.fa-pencil{
+  color:#20073a;
+}
+
+
+.selections{
+  grid-column: span 2;
+  align-items: center;
+  text-align: center;
+}
+
+
+/* CSS */
+.button-53 {
+  background-color:#f0d071b4;
+  border: 0 solid #E5E7EB;
+  box-sizing: border-box;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.75rem;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  text-decoration-thickness: auto;
+  width: 100%;
+  max-width: 150px;
+  max-height: 50px;
+  padding: none;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-53:focus {
+  outline: 0;
+}
+
+.button-53:after {
+  content: '';
+  position: absolute;
+  border: 1.5px solid #000000;
+  bottom: 4px;
+  left: -4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+.button-53:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+@media (min-width: 768px) {
+  .button-53 {
+    padding: .75rem 3rem;
+    font-size: 1.25rem;
+  }
+}
+
+.ochoice img {
+  opacity: 70%;
+}
+
+td, th {
+  border: 1px solid #777;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tbody tr:nth-child(odd) {
+  background:#f0b57132;
+
+}
+caption {
+  font-size: 0.8rem;
 }

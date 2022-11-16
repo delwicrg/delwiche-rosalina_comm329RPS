@@ -10,16 +10,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
   </head>
   <body>
+    <div class = "start">
     <div class="waviy">
-      <span style="--i:1">ROCK, </span>
-      <span style="--i:2"> PAPER,  </span>
-      <span style="--i:3">SCISSORS </span>
+      <span class = "waviy-1" style="--i:1">ROCK, </span>
+      <span class = "waviy-2" style="--i:2"> PAPER,  </span>
+      <span class = "waviy-3" style="--i:3">SCISSORS </span>
      </div>
-    <div class = "userInfo">
-        <label>Enter your name:</label>
+    <div class = "userInfo" id = "userInfo">
+        <i class="fa fa-pencil"></i>
+        <label class = "nameOfUserLabel">Enter your name:</label>
         <input id = "nameOfUser" name="name"> 
+    </div>
     </div>
     <main class="choice">
       <section class="pchoice">
@@ -36,29 +46,35 @@
       </section>
     </main>
     <section class="scoreboard">
-      <img class = "final" src = "svg/mystery.svg" id = "userSelection"></img>
-      <img  class = "final" src = "svg/mystery.svg" id = "computerSelection"></img>
+ 
 
       <h2 id="result">It's a Tie.</h2>
       <div id="play" class="score">
+        <img  class = "final" src = "svg/mystery.svg" id = "computerSelection"></img>
+
         <p id="pscore">0</p>
         <p class="label" id ="playerName">Player</p>
       </div>
       <div id="opp" class="score">
+        <img class = "final" src = "svg/mystery.svg" id = "userSelection"></img>
+
         <p id="oscore">0</p>
         <p class="label">Opponent</p>
       </div>
      
 
-      <button class = "resetButton" onclick = "resetGame()">Reset</button>
+<div class = "selections">     <button class="button-53" role="button" onclick = "resetGame()">Reset</button></div> 
       
     </section>
     <section>
       <div>
         <table id="scoreBoard">
           <tr>
-            <th>User</th>
             <th>Win Rate</th>
+            <th>Number of Games</th>
+            <th>User</th>
+
+
           </tr>
         </table>
       </div>

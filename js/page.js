@@ -82,7 +82,8 @@ function userSelectionAfter(){
     clearSelection();
     gameNum++;
     if(gameNum == 1){
-        document.getElementById("nameOfUser").style.display = "none";
+        document.getElementById("userInfo").style.display = "none";
+
     }
     
     
@@ -156,36 +157,55 @@ function resetGame(){
         document.getElementById("oscore").innerHTML = computerScoreTotal;
         document.getElementById("pscore").innerHTML = userScoreTotal;
         document.getElementById("nameOfUser").value = "";
-        document.getElementById("nameOfUser").style.display = "block";  
+        document.getElementById("userInfo").style.display = "block";  
         document.getElementById("playerName").innerHTML = "Player";
+
+        sortTable();
 
 }
 
+/**
+ * to update the scoreboard with the win rate, number of games played, and name of user
+ */
 function updateScoreBoard(){
     var winRate = userScoreTotal / gameNum;
+    winRate = parseFloat(winRate.toFixed(3));
+    if(winRate >= 0){
     var table = document.getElementById("scoreBoard");
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(-1);
     var cell2 = row.insertCell(1);
-    cell1.innerHTML = nameOfUser ;
-    cell2.innerHTML = winRate;
+    var cell3= row.insertCell(1);
+
+    cell1.innerHTML = winRate ;
+    cell3.innerHTML = gameNum;
+    cell2.innerHTML = nameOfUser;
+    }
 }
 
-
-/* for text */
-
-const target = window.document.getElementsByTagName('h1')[0]
-
-const flickerLetter = letter => `<span style="animation: text-flicker-in-glow ${Math.random()*4}s linear both ">${letter}</span>`
-const colorLetter = letter => `<span style="color: hsla(${Math.random()*360}, 100%, 80%, 1);">${letter}</span>`;
-const flickerAndColorText = text => 
-  text
-    .split('')
-    .map(flickerLetter)
-    .map(colorLetter)
-    .join('');
-const neonGlory = target => target.innerHTML = flickerAndColorText(target.textContent);
-
-
-neonGlory(target);
-target.onclick = ({ target }) =>  neonGlory(target);
+/* function modifed from https://www.w3schools.com/howto/howto_js_sort_table.asp */
+/**
+ * to sort the score board by the highest win rate to lowest win rate
+ */
+function sortTable() {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("scoreBoard");
+    switching = true;
+    while (switching) {
+      switching = false;
+      rows = table.rows;
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[0];
+        y = rows[i + 1].getElementsByTagName("TD")[0];
+        if (Number(x.innerHTML) < Number(y.innerHTML)) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }
