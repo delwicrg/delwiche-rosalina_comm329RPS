@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RPS-Starter</title>
+    <title>RPS Delwiche</title>
     <link href="css/global.css" rel="stylesheet">
     <link href="css/modnorm.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -16,6 +16,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="/img/rps.png">
+
+
+<meta charset="UTF-8">
 
   </head>
   <body>
@@ -26,8 +30,8 @@
       <span class = "waviy-3" style="--i:3">SCISSORS </span>
      </div>
     <div class = "userInfo" id = "userInfo">
-        <i class="fa fa-pencil"></i>
-        <label class = "nameOfUserLabel">Enter your name:</label>
+        <img src = "img/pencil.png"></img>
+        <label class = "nameOfUserLabel">Name:</label>
         <input id = "nameOfUser" name="name"> 
     </div>
     </div>
@@ -48,7 +52,7 @@
     <section class="scoreboard">
  
 
-      <h2 id="result">It's a Tie.</h2>
+      <h2 id="result"><img src = "img/start.png"></img>Enter your name and select an option to begin</h2>
       <div id="play" class="score">
         <img  class = "final" src = "svg/mystery.svg" id = "userSelection"></img>
 
@@ -64,6 +68,7 @@
      
 
 <div class = "selections">     <button class="button-53" role="button" onclick = "resetGame()">Reset</button></div> 
+<div class = "selections"  id = "resetMessage"><p>Game is reset. If you played more than one game, your results will appear on the scoreboard below.</p></div> 
       
     </section>
     <section>
@@ -73,8 +78,6 @@
             <th>Win Rate</th>
             <th>Number of Games</th>
             <th>User</th>
-
-
           </tr>
         </table>
       </div>

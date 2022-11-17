@@ -17,7 +17,6 @@ var gameNum = 0;
 
 const scoreBoard = [];
 
-
 /**
  * to chose opponent choice by random 
  */
@@ -64,12 +63,11 @@ function userSelectionScissors(){
     userChoice = SCISSORS;
     userSelectionAfter();
     document.getElementById("userSelection").src="./svg/scissors.svg";
-
 } 
 
 /**
  * to carry out the game after user selection
- * carries out computer selection, computation of win or loose, and updating of score
+ * carries out computer selection, computation of win or lose, and updating of score
  */
 function userSelectionAfter(){
     nameOfUser =  document.getElementById("nameOfUser").value;
@@ -83,12 +81,9 @@ function userSelectionAfter(){
     gameNum++;
     if(gameNum == 1){
         document.getElementById("userInfo").style.display = "none";
-
-    }
-    
-    
+        document.getElementById("resetMessage").style.display = "none";
+    }  
 }
-
 
 /**
  * clears the user and computer choices for the next game
@@ -114,28 +109,28 @@ function winOrLoss(){
 /**
  * updates the game score accordingly on whether the computer won, user won, or it was a tie
  * as a result of a win, one is added to the winners score
+ * 
+ * icons from: https://www.flaticon.com/free-icon/yes_2190573?related_id=2190573&origin=search#
  */
 function updateScore(){
     if(nameOfUser == ""){nameOfUser = "Player";}
 
     if(win == 1){   
         userScoreTotal++;
-        document.getElementById("result").innerHTML = "Congratulations " + nameOfUser + ", you win.";
+        document.getElementById("result").innerHTML =  '<img src = "img/yes.png"></img>' + " Congratulations " + nameOfUser + ", you win";
     }
     else if(win == 0){
         computerScoreTotal++;
-        document.getElementById("result").innerHTML = "Sorry " + nameOfUser + ", you loose";
+        document.getElementById("result").innerHTML = '<img src = "img/no.png"></img>'  + " Sorry " + nameOfUser + ", you lose"
     }
     else if(win == 2){
         computerScoreTotal++;
         userScoreTotal++;
-        document.getElementById("result").innerHTML = "It's a Tie";
+        document.getElementById("result").innerHTML = '<img src = "img/tie.png"></img>'  +  nameOfUser + ", it's a tie";
     }
-
 
     document.getElementById("oscore").innerHTML = computerScoreTotal;
     document.getElementById("pscore").innerHTML = userScoreTotal;
-
 
 }
 
@@ -153,15 +148,17 @@ function resetGame(){
         document.getElementById("computerSelection").src="./svg/mystery.svg";
         document.getElementById("o-img").src="./svg/mystery.svg";
 
-
         document.getElementById("oscore").innerHTML = computerScoreTotal;
         document.getElementById("pscore").innerHTML = userScoreTotal;
         document.getElementById("nameOfUser").value = "";
         document.getElementById("userInfo").style.display = "block";  
+        document.getElementById("resetMessage").style.display = "block";
+
         document.getElementById("playerName").innerHTML = "Player";
 
-        sortTable();
+        document.getElementById("result").innerHTML = '<img src = "img/start.png"></img>'  +  "Enter your name and select an option to begin"
 
+        sortTable();
 }
 
 /**
@@ -171,21 +168,21 @@ function updateScoreBoard(){
     var winRate = userScoreTotal / gameNum;
     winRate = parseFloat(winRate.toFixed(3));
     if(winRate >= 0){
-    var table = document.getElementById("scoreBoard");
-    var row = table.insertRow(-1);
-    var cell1 = row.insertCell(-1);
-    var cell2 = row.insertCell(1);
-    var cell3= row.insertCell(1);
+        var table = document.getElementById("scoreBoard");
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(-1);
+        var cell2 = row.insertCell(1);
+        var cell3= row.insertCell(1);
 
-    cell1.innerHTML = winRate ;
-    cell3.innerHTML = gameNum;
-    cell2.innerHTML = nameOfUser;
+        cell1.innerHTML = winRate ;
+        cell3.innerHTML = gameNum;
+        cell2.innerHTML = nameOfUser;
     }
 }
 
-/* function modifed from https://www.w3schools.com/howto/howto_js_sort_table.asp */
 /**
  * to sort the score board by the highest win rate to lowest win rate
+ * function modifed from https://www.w3schools.com/howto/howto_js_sort_table.asp
  */
 function sortTable() {
     var table, rows, switching, i, x, y, shouldSwitch;

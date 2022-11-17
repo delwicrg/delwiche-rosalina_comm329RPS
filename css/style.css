@@ -122,7 +122,7 @@ p.label {
   border-left: none;
   border-right: none;
   font-family: 'Indie Flower', cursive;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 
 
   border-width: 2px;
@@ -191,6 +191,8 @@ p.label {
   
 }
 
+
+
 .waviy .waviy-2{
   color:#6d1950;
 }
@@ -202,11 +204,24 @@ p.label {
   color:#20073a;
 }
 
+h2, .score, .userInfo, input {
+  color:#20073a;
+}
+
 
 .selections{
   grid-column: span 2;
   align-items: center;
   text-align: center;
+}
+
+#result{
+  color: #aa6d3a;
+}
+
+
+#pscore, #oscore{
+  color:#6d1950;
 }
 
 
@@ -273,6 +288,8 @@ td, th {
 table {
   border-collapse: collapse;
   width: 100%;
+  color:#20073a;
+
 }
 
 tbody tr:nth-child(odd) {
@@ -281,4 +298,19 @@ tbody tr:nth-child(odd) {
 }
 caption {
   font-size: 0.8rem;
+}
+
+th{
+  background:#CC5500;
+  color: white;
+}
+
+#resetMessage{
+  color: #CC5500;
+  display: none;
+}
+
+h2, tr, td, .button-53{
+  color:#623a01;
+  
 }
